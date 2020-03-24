@@ -1,0 +1,37 @@
+STEPS TO RUN THE APPLICATION
+  1. INSTALL NODEMODULES REQUIRED, USE npm i
+  2. Application runs on angular command line interface , use npm i angular-cli
+  or npm i -g angular-cli to install the command line interface
+  3. Once done, run ng serve, which will run the application. To change the port
+  to a desired port, use ng serve --port xxxx.
+  4. You can also use --prod to run as a prod version of code.
+
+Application Details
+  1. Application has a main component i.e., app-component and api-renderer-component
+  2. Main component is configured with 
+  {
+  title: 'Add new user',
+  url: 'https://jsonplaceholder.typicode.com/users',
+  method: 'POST',
+  body: [
+    {
+      name: 'email',
+      type: 'email',
+      max: 24,
+      min: 3,
+    },
+    {
+      name: 'full-name',
+      type: 'text',
+      placeholder: 'John Doe',
+      required: true,
+    },
+    {
+      name: 'phone',
+      type: 'tel',
+      pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}',
+    },
+  ]
+}
+
+

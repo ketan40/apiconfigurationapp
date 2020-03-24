@@ -1,0 +1,26 @@
+<div class="renderer-container">
+    <h4>{{method}}</h4>
+    <h4>{{url}}</h4>
+    <p>{{title}}</p>
+    <div *ngIf="method === 'POST' || method === 'PUT'">
+        <form [formGroup]="apiRendererForm">
+            <Label *ngFor="let ele of body">
+                {{ele.name}}<span *ngIf="ele.required">*</span>
+                <input type="{{ele.type}}" maxlength="{{ele.maxlength}}"
+                    minlength="{{ele.minlength}}" formControlName="{{ele.name}}">
+            </Label>
+        </form>
+        <!-- <button *ngIf="apiRendererForm.valid" mat-raised-button color="primary">Primary</button> -->
+        <button (click)="submitData(method,apiRendererForm)" [disabled]="!apiRendererForm.valid" mat-raised-button
+            color="primary">Submit</button>
+
+    </div>
+    <div *ngIf="method === 'DELETE' || method === 'GET'">
+        <button (click)="submitData(method, apiRendererForm)" mat-raised-button color="primary">Submit</button>
+
+    </div>
+    <div>
+        <label>Response: </label>
+        <input type='text' readonly value="{{outputResponse}}">
+    </div>
+</div>
